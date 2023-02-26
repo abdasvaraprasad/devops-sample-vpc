@@ -19,7 +19,7 @@ resource "aws_subnet" "public-subnet-1" {
   vpc_id                  = aws_vpc.devops-vpc.id
   map_public_ip_on_launch = true
   cidr_block              = "10.16.16.0/23"
-  availability_zone       = "us-west-1a"
+  availability_zone       = "us-west-2a"
 
   tags = {
     Name = "public-subnet-1"
@@ -29,7 +29,7 @@ resource "aws_subnet" "public-subnet-2" {
   vpc_id                  = aws_vpc.devops-vpc.id
   map_public_ip_on_launch = true
   cidr_block              = "10.16.80.0/23"
-  availability_zone       = "us-west-1b"
+  availability_zone       = "us-west-2b"
 
   tags = {
     Name = "public-subnet-2"
@@ -43,7 +43,7 @@ resource "aws_subnet" "application-private-1" {
   vpc_id                  = aws_vpc.devops-vpc.id
   map_public_ip_on_launch = false
   cidr_block              = "10.16.32.0/23"
-  availability_zone       = "us-west-1a"
+  availability_zone       = "us-west-2a"
 
   tags = {
     Name = "application-private-1"
@@ -53,7 +53,7 @@ resource "aws_subnet" "application-private-2" {
   vpc_id                  = aws_vpc.devops-vpc.id
   map_public_ip_on_launch = false
   cidr_block              = "10.16.96.0/23"
-  availability_zone       = "us-west-1b"
+  availability_zone       = "us-west-2b"
 
   tags = {
     Name = "application-private-2"
@@ -64,7 +64,7 @@ resource "aws_subnet" "database-private-1" {
   vpc_id                  = aws_vpc.devops-vpc.id
   map_public_ip_on_launch = false
   cidr_block              = "10.16.40.0/23"
-  availability_zone       = "us-west-1a"
+  availability_zone       = "us-west-2a"
 
   tags = {
     Name = "database-private-1"
@@ -75,7 +75,7 @@ resource "aws_subnet" "database-private-2" {
   vpc_id                  = aws_vpc.devops-vpc.id
   map_public_ip_on_launch = false
   cidr_block              = "10.16.50.0/23"
-  availability_zone       = "us-west-1b"
+  availability_zone       = "us-west-2b"
 
   tags = {
     Name = "database-private-2"
@@ -129,7 +129,7 @@ resource "aws_route_table_association" "public-association-2" {
 ## pre-req (keypair, amiid, )
 resource "aws_instance" "default" {
   ami               = "ami-0036b4598ccd42565"
-  availability_zone = "us-west-1a"
+  availability_zone = "us-west-2a"
   instance_type     = "t2.micro"
   #iam_instance_profile                 = local.instance_profile
   associate_public_ip_address = true
